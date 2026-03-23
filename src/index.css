@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Smooch&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Six+Caps&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "DM Sans", sans-serif;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	background: #faf6f1;
+	background-color: #faf6f1;
+	color: #1a1a2e;
+}
+
+.nav-link.active {
+	color: #ff0101;
+	font-weight: bold;
+	padding-bottom: 3px;
+	border-bottom: 2px solid #ff0101;
+}
+.smooch-regular {
+	font-family: "Smooch", cursive;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.six-caps-regular {
+	font-family: "Six Caps", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
