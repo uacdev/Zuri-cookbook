@@ -10,11 +10,11 @@ export const Hero = () => {
             <Flex direction={'column'} pt={20} alignItems={'center'} bgImage={`url(${bgPatterns})`} h={'90vh'} bgRepeat={'no-repeat'} bgSize={'cover'}>
                 <Text color={'#FF0101'} fontWeight={'bold'} fontSize={'18px'} letterSpacing={'2px'} textTransform={'uppercase'}>Nigeria's Favourite Seasoning</Text>
                 <Box>
-                    <Text fontSize={'104.5px'} fontWeight={'black'}>Making Everyday</Text>
+                    <Text fontSize={'104.5px'} className='anja'>Making Everyday</Text>
                     <HStack mt={'-18px'}>
                         <Text color={'#FF0101'} fontSize={'110px'} className='smooch-regular'>Cooking</Text>
                         <Image w={'292.21px'} src={seasoningImages} alt="seasoning-images" />
-                        <Text ml={8} fontWeight={'black'} fontSize={'104.5px'}> Fun</Text>
+                        <Text ml={8} className='anja' fontSize={'104.5px'}> Fun</Text>
                     </HStack>
                 </Box>
                 <Flex justify={'center'} rounded={'30px'} px={'95px'} mt={'152px'} position={'relative'}>

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Smooch&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Six+Caps&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -9,19 +10,33 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: "DM Sans", sans-serif;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+	font-family: "Urbanist", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
 }
 
 *::-webkit-scrollbar {
 	display: none;
+}
+@font-face {
+	font-family: "Anja";
+	src: url(fonts/Anja_Eliane.ttf) format("truetype");
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Anja-accent";
+	src: url(fonts/Anja_Eliane_accent002.ttf) format("truetype");
+	font-display: fallback;
 }
 
 body {
 	background: #faf6f1;
 	background-color: #faf6f1;
 	color: #1a1a2e;
+	font-family: "DM Sans", sans-serif;
 }
 
 .nav-link.active {
@@ -39,5 +54,23 @@ body {
 .six-caps-regular {
 	font-family: "Six Caps", sans-serif;
 	font-weight: 400;
+	font-style: normal;
+}
+
+.anja {
+	font-family: "Anja", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.anja-accent {
+	font-family: "Anja-accent", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.urbanist {
+	font-family: "Urbanist", sans-serif;
+	font-optical-sizing: auto;
 	font-style: normal;
 }

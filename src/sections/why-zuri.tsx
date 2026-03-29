@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Icon, Image, Text } from "@chakra-ui/react"
+import { Box, Center, Flex, Image, Text } from "@chakra-ui/react"
 import friedRecipeImg from '../assets/fried-rice-img.png'
 import starIcon from '../assets/star-icon.svg'
 

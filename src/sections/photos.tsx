@@ -4,10 +4,10 @@ import { LuArrowRight } from "react-icons/lu"
 
 export const Photos = () => {
     return (
-        <Flex p={16} bg={'#F2EDE8'} direction={'column'} pb={20} alignItems={'center'}>
+        <Flex p={16} bg={'#F2EDE8'} direction={'column'} pb={20} justify={'center'} alignItems={'center'}>
             <Flex color={'white'} position={'relative'} bgImage={`url(/assets/gallery/image-1.png)`} overflow={'hidden'} bgSize={'cover'} backgroundPosition={'center'} rounded={'18px'} bgRepeat={'no-repeat'} w={'1360px'} h={'508px'} >
                 <Flex w={'full'} direction={'column'} zIndex={'modal'} alignItems={'center'} justifyContent={'center'}>
-                    <Text fontSize={'75px'} fontWeight={'black'}>Tag @Zuri_nigeria</Text>
+                    <Text fontSize={'75px'} className="anja-accent">Tag @Zuri_nigeria</Text>
                     <Text fontSize={'18px'}>Each Zuri seasoning blend is perfected for a specific taste profile</Text>
                     <Button rounded={'full'} mt={5} fontWeight={'bold'} py={3} px={6} color={'#5D3002'} bg={'white'}>
                         <Icon boxSize={5} as={FaInstagram} />

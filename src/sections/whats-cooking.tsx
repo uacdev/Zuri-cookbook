@@ -8,7 +8,7 @@ export const WhatsCooking = () => {
 
     return (
         <Box>
-            <Flex w={'full'} direction={"column"} pt={10} alignItems={"center"}>
+            <Flex w={'full'} direction={"column"} pt={10} mt={20} alignItems={"center"}>
                 <Text
                     color={"#FF0101"}
                     fontWeight={"bold"}
@@ -18,7 +18,7 @@ export const WhatsCooking = () => {
                 >
                     Nigeria's Favourite Seasoning
                 </Text>
-                <Text fontSize={"55px"} fontWeight={"black"}>
+                <Text fontSize={"55px"} className='anja-accent'>
                     What's Cooking Today
                 </Text>
                 <Text fontSize={"18px"} color={"#6B6B7A"}>
