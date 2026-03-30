@@ -1,13 +1,23 @@
-import { Box, Button, Flex, HStack, Image, Text } from "@chakra-ui/react"
+import { Box, Button, Center, Flex, HStack, IconButton, Image, Text } from "@chakra-ui/react"
 import { LuClock, LuUsers } from "react-icons/lu"
 import { SimpleSlider } from "./slider"
-
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
+import { useRef } from "react"
 
 export const WhatsCooking = () => {
+    const scrollRef = useRef<HTMLDivElement>(null)
 
-
+    const scroll = (direction: 'left' | 'right') => {
+        if (scrollRef.current) {
+            const scrollAmount = scrollRef.current.clientWidth + 16
+            scrollRef.current.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            })
+        }
+    }
     return (
-        <Box>
+        <Box mt={{ base: '20rem', lg: '0' }}>
             <Flex w={'full'} direction={"column"} pt={10} mt={20} alignItems={"center"}>
                 <Text
                     color={"#FF0101"}
@@ -18,24 +28,31 @@ export const WhatsCooking = () => {
                 >
                     Nigeria's Favourite Seasoning
                 </Text>
-                <Text fontSize={"55px"} className='anja-accent'>
+                <Text fontSize={{ base: '32px', lg: '55px' }} className='anja-accent'>
                     What's Cooking Today
                 </Text>
-                <Text fontSize={"18px"} color={"#6B6B7A"}>
+                <Text fontSize={"18px"} textAlign='center' color={"#6B6B7A"}>
                     Handpicked recipes for every occasion, every taste.
                 </Text>
             </Flex>
             <Flex
+                ref={scrollRef}
                 my={8}
                 px={2}
                 gap={4}
                 w={'100%'}
                 overflowX={'scroll'}
-                flexWrap={'nowrap'} >
+                flexWrap={'nowrap'}
+                css={{
+                    '&::-webkit-scrollbar': { display: 'none' },
+                    'msOverflowStyle': 'none',
+                    'scrollbarWidth': 'none',
+                }}
+            >
                 {Recipes.map((recipe, index) => (
                     <Flex
                         key={index}
-                        w={"400px"}
+                        w={{ base: 'full', lg: "400px" }}
                         h={"600px"}
                         position={"relative"}
                         flexShrink={0}
@@ -55,7 +72,7 @@ export const WhatsCooking = () => {
                             bg={"#00000088"}
                         />
                         <Flex
-                            zIndex={"modal"}
+                            zIndex={"99"}
                             color={"white"}
                             alignItems={"center"}
                             direction={"column"}
@@ -93,8 +110,32 @@ export const WhatsCooking = () => {
                     </Flex>
                 ))}
             </Flex>
+            <Center mb={8} className="flex lg:hidden">
+                <HStack gap={4}>
+                    <IconButton
+                        aria-label="Previous slide"
+                        color={'#FF0101'}
+                        rounded={'full'}
+                        border={'1px solid #FF0101'}
+                        variant="outline"
+                        onClick={() => scroll('left')}
+                    >
+                        <FaAngleLeft />
+                    </IconButton>
+                    <IconButton
+                        aria-label="Next slide"
+                        color={'#FF0101'}
+                        rounded={'full'}
+                        border={'1px solid #FF0101'}
+                        variant="outline"
+                        onClick={() => scroll('right')}
+                    >
+                        <FaAngleRight />
+                    </IconButton>
+                </HStack>
+            </Center >
             <SimpleSlider />
-        </Box>
+        </Box >
     )
 }
 

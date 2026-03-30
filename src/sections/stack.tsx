@@ -89,7 +89,7 @@ export const ZuriStack = () => {
                         rotate: rotation[index]
                     }} />
 
-                    <Flex style={{ zIndex: 1, color: "white", justifyContent: 'end', alignItems: 'end', flex: 1 }}>
+                    <Flex className='z-10 justify-end items-end flex-1 text-white'>
                         <div>
                             <h2 style={{ fontSize: "64px", fontWeight: 800, margin: "0 0 " }}>{spice.title}</h2>
                             <p style={{ fontSize: "18px", color: '#F2EDE8', lineHeight: '28px', maxWidth: "457px" }}>{spice.subtext}</p>
@@ -106,10 +106,11 @@ export const ZuriStack = () => {
                                 See Recipes →
                             </button>
                         </div>
-                        <img src={spice.seasoningImage} style={{ width: "385px", height: '390px', objectFit: "contain", zIndex: 1, flexShrink: 0, marginLeft: "auto" }} />
+                        <img
+                            src={spice.seasoningImage}
+                            className="w-[385px] h-full lg:h-[390px] object-contain flex-shrink-0 ml-auto"
+                        />
                     </Flex>
-
-
                 </motion.div>
             ))}
         </div>

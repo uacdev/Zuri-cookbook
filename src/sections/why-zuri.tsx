@@ -4,15 +4,35 @@ import starIcon from '../assets/star-icon.svg'
 
 export const WhyZuri = () => {
     return (
-        <Flex direction={'column'} py={20} alignItems={'center'} bg={'#F2EDE8'}>
-            <Text fontSize={'55px'} mb={11} textAlign={'center'} fontWeight={'black'}>Why Cook With Zuri?</Text>
-            <Flex gap={4.5} >
-                <Box bg={`url(${friedRecipeImg})`} p={4} bgSize={'cover'} backgroundPosition={'center'} border={'2px solid #FAF6F1'} bgRepeat={'no-repeat'} rounded={'24px'} w={'475px'} h={'436.97px'}>
-                    <Center bg={'#FF0101'} color={'#FAF6F1'} fontSize={'12px'} w={'fit'} textTransform={'uppercase'} rounded={'full'} fontWeight={'semibold'} py={1} px={3}>Fried rice recipe - 1HR 25Mins - 8-10 pEOPLE</Center>
+        <Flex direction={'column'} py={20} alignItems={'center'} bg={'#F2EDE8'} mt={{ base: '22rem', lg: 0 }}>
+            <Text fontSize={{ base: '32px', lg: '55px' }} mb={11} textAlign={'center'} fontWeight={'black'}>Why Cook With Zuri?</Text>
+            <Flex gap={4.5} flexDirection={{ base: 'column', lg: 'row' }}>
+                <Box
+                    bg={`url(${friedRecipeImg})`}
+                    p={4}
+                    bgSize={'cover'}
+                    backgroundPosition={'center'}
+                    border={'2px solid #FAF6F1'}
+                    bgRepeat={'no-repeat'}
+                    rounded={'24px'}
+                    w={{ base: 'full', lg: '475px' }}
+                    h={'436.97px'}>
+                    <Center bg={'#FF0101'} color={'#FAF6F1'} fontSize={'12px'} w={'fit'} textTransform={'uppercase'} rounded={'full'} fontWeight={'semibold'} py={1} px={3}>
+                        Fried rice recipe - 1HR 25Mins - 8-10 people
+                    </Center>
                 </Box>
-                <Flex direction={'column'} justifyContent={'center'} rounded={'24px'} p={8} h={'436.97px'} bg={'#FFFBFA'} border={'2px solid #FAF6F1'}>
+                <Flex
+                    direction={'column'}
+                    justifyContent={'center'}
+                    rounded={'24px'}
+                    p={8}
+                    // h={'436.97px'}
+                    bg={'#FFFBFA'}
+                    border={'2px solid #FAF6F1'}>
                     <Text fontSize={'24px'} fontWeight={'extrabold'}>The Secret Behind Every Great Nigerian Dish</Text>
-                    <Text w={'800px'} fontWeight={'14px'}>At Zuri, we believe great cooking starts with great ingredients. That's why we source only the finest spices and herbs from trusted suppliers across West Africa. Each blend is carefully crafted to bring out authentic Nigerian flavors — tested by professional chefs and perfected by thousands of home cooks just like you. Whether you're a seasoned cook or just starting your culinary journey, Zuri makes it easy to create restaurant-quality dishes at home.</Text>
+                    <Text w={{ base: 'full', lg: '800px' }} fontWeight={'14px'}>
+                        At Zuri, we believe great cooking starts with great ingredients. That's why we source only the finest spices and herbs from trusted suppliers across West Africa. Each blend is carefully crafted to bring out authentic Nigerian flavors — tested by professional chefs and perfected by thousands of home cooks just like you. Whether you're a seasoned cook or just starting your culinary journey, Zuri makes it easy to create restaurant-quality dishes at home.
+                    </Text>
                     <Box>
                         {Texts.map((text, index) => (
                             <Flex key={index} gap={5} mt={8}>
@@ -25,7 +45,6 @@ export const WhyZuri = () => {
                         ))}
                     </Box>
                 </Flex>
-
             </Flex>
         </Flex>
     )

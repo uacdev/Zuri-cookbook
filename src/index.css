@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Smooch&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Six+Caps&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -20,6 +21,7 @@
 *::-webkit-scrollbar {
 	display: none;
 }
+
 @font-face {
 	font-family: "Anja";
 	src: url(fonts/Anja_Eliane.ttf) format("truetype");
@@ -37,6 +39,7 @@ body {
 	background-color: #faf6f1;
 	color: #1a1a2e;
 	font-family: "DM Sans", sans-serif;
+	overflow-x: hidden;
 }
 
 .nav-link.active {
@@ -45,6 +48,7 @@ body {
 	padding-bottom: 3px;
 	border-bottom: 2px solid #ff0101;
 }
+
 .smooch-regular {
 	font-family: "Smooch", cursive;
 	font-weight: 400;
@@ -73,4 +77,41 @@ body {
 	font-family: "Urbanist", sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
+}
+
+.playfair {
+	font-family: "Playfair Display", serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+
+@keyframes pulse-scale {
+
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.2);
+	}
+}
+
+.animate-pulse-scale {
+	animation: pulse-scale 1.5s ease-in-out infinite;
+}
+
+@media print {
+	.no-print {
+		display: none !important;
+	}
+
+	body {
+		background: white !important;
+	}
+
+	main {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
 }
