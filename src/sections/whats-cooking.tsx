@@ -19,15 +19,6 @@ export const WhatsCooking = () => {
     return (
         <Box mt={{ base: '20rem', lg: '0' }}>
             <Flex w={'full'} direction={"column"} pt={10} mt={20} alignItems={"center"}>
-                <Text
-                    color={"#FF0101"}
-                    fontWeight={"bold"}
-                    fontSize={"18px"}
-                    letterSpacing={"2px"}
-                    textTransform={"uppercase"}
-                >
-                    Nigeria's Favourite Seasoning
-                </Text>
                 <Text fontSize={{ base: '32px', lg: '55px' }} className='anja-accent'>
                     What's Cooking Today
                 </Text>

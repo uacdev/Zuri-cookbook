@@ -8,7 +8,6 @@ export const Hero = () => {
     return (
         <Box h={'130vh'}>
             <Flex direction={'column'} pt={20} alignItems={'center'} bgImage={`url(${bgPatterns})`} h={'90vh'} bgRepeat={'no-repeat'} bgSize={'cover'}>
-                <Text color={'#FF0101'} fontWeight={'bold'} fontSize={'18px'} letterSpacing={'2px'} textTransform={'uppercase'}>Nigeria's Favourite Seasoning</Text>
                 <Box p={{ base: 4, lg: 0 }} textAlign={'center'}>
                     <Text fontSize={{ base: '60px', lg: '104.5px' }} className='anja'>Making Everyday</Text>
                     <HStack mt={'-18px'} flexDirection={{ base: 'column', lg: 'row' }} gap={4}>

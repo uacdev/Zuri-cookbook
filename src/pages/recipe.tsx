@@ -20,7 +20,7 @@ export default function Recipes() {
     const [totalCount, setTotalCount] = useState(0)
     const [searchQuery, setSearchQuery] = useState('')
     const [debouncedSearch, setDebouncedSearch] = useState('')
-    const pageSize = 10;
+    const pageSize = 9;
 
     useEffect(() => {
         const timer = setTimeout(() => {

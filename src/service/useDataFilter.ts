@@ -145,3 +145,49 @@ const recipes = [
 		id: 'beef-stew'
 	}
 ]
+
+// [
+//   {
+//     "name": "Long-grain rice",
+//     "unit": "cups",
+//     "quantity": "3"
+//   },
+//   {
+//     "name": "Chicken pieces",
+//     "unit": "lbs",
+//     "quantity": "1.5"
+//   },
+//   {
+//     "name": "Tomato paste",
+//     "unit": "cup",
+//     "quantity": "1/2"
+//   }
+// ]
+
+// [
+//   {
+//     "step": 1,
+//     "title": "Prepare and Season the Chicken",
+//     "content": "Wash chicken pieces thoroughly. Season generously with 2 tablespoons of Zuri Chicken Seasoning, ensuring every piece is well coated. Let marinate for at least 30 minutes, or overnight for deeper flavor."
+//   },
+//   {
+//     "step": 2,
+//     "title": "Cook the Base",
+//     "content": "Heat oil in a large pot over medium-high heat. Add diced onions and sauté until translucent. Stir in tomato paste and cook for 5 minutes, stirring constantly to prevent burning. This creates the rich red base."
+//   },
+//   {
+//     "step": 3,
+//     "title": "Build the Sauce",
+//     "content": "Add blended tomatoes and peppers to the pot. Cook on medium heat for 15-20 minutes until the mixture thickens and the oil starts to float on top. Add remaining Zuri Chicken Seasoning, thyme, curry, and bay leaves. Stir well."
+//   },
+//   {
+//     "step": 4,
+//     "title": "Add Rice and Stock",
+//     "content": "Pour in the chicken stock and bring to a boil. Taste and adjust seasoning if needed. Add the washed rice and nestle the marinated chicken pieces on top. Reduce heat to low, cover tightly, and cook for 30-35 minutes without stirring."
+//   },
+//   {
+//     "step": 5,
+//     "title": "Steam and Rest",
+//     "content": "When rice is tender and liquid is absorbed, turn off heat. Let the pot sit covered for 5 minutes to steam. Gently fluff rice with a fork, mixing from the bottom up to distribute the colors and flavors evenly."
+//   }
+// ]

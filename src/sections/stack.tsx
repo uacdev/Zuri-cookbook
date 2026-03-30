@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import { Flex, Image } from "@chakra-ui/react"
+import { FaArrowRight } from 'react-icons/fa'
 
 interface Flavour {
     title: string
@@ -93,17 +94,9 @@ export const ZuriStack = () => {
                         <div>
                             <h2 style={{ fontSize: "64px", fontWeight: 800, margin: "0 0 " }}>{spice.title}</h2>
                             <p style={{ fontSize: "18px", color: '#F2EDE8', lineHeight: '28px', maxWidth: "457px" }}>{spice.subtext}</p>
-                            <button style={{
-                                marginTop: "20px",
-                                padding: "8px 20px",
-                                borderRadius: "999px",
-                                border: "1px solid rgba(255,255,255,0.4)",
-                                background: "white",
-                                color: '#5D3002',
-                                fontSize: "16px",
-                                cursor: "pointer",
-                            }}>
-                                See Recipes →
+                            <button className='h-[44px] mt-[20px] px-[20px] py-[8px] rounded-[100px] border border-[rgba(255,255,255,0.4)] bg-white text-[#5D3002] font-bold flex items-center gap-2'>
+                                See Recipes
+                                <FaArrowRight />
                             </button>
                         </div>
                         <img
