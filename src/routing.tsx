@@ -1,8 +1,9 @@
 import { type RouteObject } from "react-router"
 import Layout from "./pages/layout";
 import LandingPage from "./pages";
-import Recipe from "./pages/recipe";
-import RecipePage from "./pages/recipe-page";
+import Recipes from "./pages/recipe";
+import RecipeDetails from "./pages/recipe-details";
+import NotFound from "./pages/not-found";
 
 const routes: RouteObject[] = [
     {
@@ -10,9 +11,9 @@ const routes: RouteObject[] = [
         element: <Layout />,
         children: [
             { index: true, element: <LandingPage /> },
-            { path: "recipes", element: <Recipe /> },
-            { path: "recipe/:id", element: <RecipePage /> },
-
+            { path: "recipes", element: <Recipes /> },
+            { path: "recipe/:id", element: <RecipeDetails /> },
+            { path: "*", element: <NotFound /> },
         ]
     },
 ];
