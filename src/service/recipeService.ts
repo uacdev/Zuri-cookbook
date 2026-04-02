@@ -34,7 +34,7 @@ export interface RecipesResponse {
     total: number
 }
 
-export const fetchRecipes = async (page: number = 1, limit: number = 10, category?: string, search?: string): Promise<RecipesResponse> => {
+export const fetchRecipes = async (page: number = 1, limit: number = 10, category?: string, search?: string, seasoning?: string): Promise<RecipesResponse> => {
     const query: any = {
         content_type: 'recipe',
         order: ['-sys.createdAt'],
@@ -44,6 +44,10 @@ export const fetchRecipes = async (page: number = 1, limit: number = 10, categor
 
     if (category && category !== 'All Recipes') {
         query['fields.category[match]'] = category
+    }
+
+    if (seasoning) {
+        query['fields.seasoning[match]'] = seasoning
     }
 
     if (search) {

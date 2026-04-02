@@ -5,7 +5,7 @@ import starIcon from '../assets/star-icon.svg'
 export const WhyZuri = () => {
     return (
         <Flex direction={'column'} py={20} alignItems={'center'} bg={'#F2EDE8'} mt={{ base: '22rem', lg: 0 }}>
-            <Text fontSize={{ base: '32px', lg: '55px' }} mb={11} textAlign={'center'} fontWeight={'black'}>Why Cook With Zuri?</Text>
+            <Text fontSize={{ base: '32px', lg: '55px' }} mb={11} textAlign={'center'} fontWeight={'black'} className="anja">Why Cook With Zuri?</Text>
             <Flex gap={4.5} flexDirection={{ base: 'column', lg: 'row' }}>
                 <Box
                     bg={`url(${friedRecipeImg})`}

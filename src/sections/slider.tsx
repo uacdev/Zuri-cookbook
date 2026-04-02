@@ -1,6 +1,10 @@
+import { useLocation } from "react-router"
 
 
 export const SimpleSlider = () => {
+    const { pathname } = useLocation();
+    const isNotHomePage = pathname !== '/';
+
     const zuriSpices = [
         'ZURI BEEF',
         'ZURI CHICKEN',
@@ -11,7 +15,7 @@ export const SimpleSlider = () => {
     const items = [...zuriSpices, ...zuriSpices, ...zuriSpices, ...zuriSpices, ...zuriSpices, ...zuriSpices]
 
     return (
-        <div style={{ overflow: 'hidden', background: '#1A1A2E', color: 'white', width: '100%' }}>
+        <div style={{ overflow: 'hidden', backgroundColor: isNotHomePage ? 'transparent' : '#1A1A2E', color: 'white', width: '100%', zIndex: 100 }}>
             <style>{`
                 @keyframes ticker {
                     0% { transform: translateX(0); }
