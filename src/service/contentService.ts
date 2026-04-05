@@ -29,6 +29,14 @@ export interface Recipe {
     tags: string[]
 }
 
+export interface ManagementTeamMember {
+    id: string
+    fullName: string
+    role: string
+    image: string
+    bio: string
+}
+
 export interface RecipesResponse {
     recipes: Recipe[]
     total: number
@@ -109,4 +117,21 @@ export const fetchRecipeBySlug = async (slug: string): Promise<Recipe | null> =>
         difficulty: item.fields.difficulty ?? '',
         tags: item.fields.tags ?? [],
     }
+}
+
+export const fetchManagementTeam = async (): Promise<ManagementTeamMember[]> => {
+    const entries = await contentfulClient.getEntries({
+        content_type: 'managementTeam',
+        order: ['sys.createdAt'],
+    })
+
+    return entries.items.map((item: any) => ({
+        id: item.sys.id,
+        fullName: item.fields.fullName ?? '',
+        role: item.fields.role ?? '',
+        image: item.fields.image?.fields?.file?.url
+            ? `https:${item.fields.image.fields.file.url}`
+            : '',
+        bio: item.fields.bio ?? '',
+    }))
 }

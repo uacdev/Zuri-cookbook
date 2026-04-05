@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { IoIosFlash } from "react-icons/io";
 import { LuClock, LuPrinter, LuUsers } from "react-icons/lu";
 import { Link, useParams } from "react-router";
-import { fetchRecipeBySlug, type Recipe } from "../service/recipeService";
+import { fetchRecipeBySlug, type Recipe } from "../service/contentService";
 import { PiCookingPot } from "react-icons/pi";
 import { AppBreadcrumbs } from "../components/common/breadcrumbs";
 import { Loading } from "../components/common/loading";

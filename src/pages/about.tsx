@@ -2,11 +2,11 @@ import { Box, Flex, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react"
 import { Counter } from "../components/common/counter"
 import zuriMascot from '../assets/zuri-mascot.png'
 import heroImage from '../assets/hero-image.png'
-import peppers from '../assets/about.png'
+import fridge from '../assets/about.png'
 import quality from '../assets/icons/quality.png'
 import fast from '../assets/icons/fast.png'
 import star from '../assets/icons/star.png'
-import teamImg from '../assets/Avatar.png'
+import { Team } from "../sections/team"
 
 const About = () => {
     const metrics = [
@@ -49,29 +49,6 @@ const About = () => {
         },
     ];
 
-    const team = [
-        {
-            name: 'Fola',
-            role: 'Founder',
-            image: teamImg
-        },
-        {
-            name: 'Yemi',
-            role: 'Founder',
-            image: teamImg
-        },
-        {
-            name: 'Funke',
-            role: 'Founder',
-            image: teamImg
-        },
-        {
-            name: 'Debola',
-            role: 'Founder',
-            image: teamImg
-        },
-    ]
-
     return (
         <div>
             <Box bgSize='cover' bgImage={`url(${heroImage})`} className="relative w-full h-[684px] flex items-end justify-center">
@@ -97,11 +74,12 @@ const About = () => {
                     </Stack>
                 </Box>
             </Box>
+
             <Box className="bg-[#FAF6F1] w-full max-w-[1216px] mx-auto mt-[150px] py-10 px-4">
                 <Text className="text-[#1A1A2E] text-[32px] font-bold">
                     Zuri Seasoning delivers consistent quality, rich taste, and trusted flavour, helping consumers create delicious meals with confidence every time.
                 </Text>
-                <Image src={peppers} alt="peppers" className="w-full h-full my-8" />
+                <Image src={fridge} alt="peppers" className="w-full h-full my-8" />
                 <Box className="bg-[#CC0000] rounded-[16px] p-10">
                     <HStack justify={"space-around"} flexDirection={{ base: 'column', lg: 'row' }} gap={8}>
                         {metrics.map((metric) => (
@@ -114,6 +92,22 @@ const About = () => {
                         ))}
                     </HStack>
                 </Box>
+                <HStack justify={'center'} gap={5} flexDirection={{ base: 'column', lg: 'row' }} py={6}>
+                    <Text className="inter text-[#1A1A2E] text-[18px] font-light">
+                        Founded in 2011, Zuri started with a simple mission: to help every Nigerian cook create restaurant-quality dishes at home without spending hours perfecting spice blends. Our founder, Chef Amara Okafor, grew up watching her grandmother measure out countless spices by hand for family gatherings.
+                        <br /><br />
+                        She knew there had to be a way to preserve that authentic taste while making it accessible to busy families, young professionals, and anyone who wanted to connect with Nigerian cuisine. After three years of testing and refinement — and feedback from hundreds of home cooks — Zuri Chicken Seasoning launched to immediate acclaim.
+                        <br /><br />
+                        Today, Zuri has expanded to four signature blends, each crafted with the same dedication to quality and authenticity.
+                    </Text>
+                    <Text className="inter text-[#1A1A2E] text-[18px] font-light">
+                        We work directly with local farmers and spice merchants across West Africa to source the finest ingredients. Every batch is tested to ensure it meets our exacting standards.
+                        <br /><br />
+                        More than just a seasoning brand, Zuri has become a community. Through our recipe platform, cooking tutorials, and social media presence, we've connected over a million cooks who share tips, celebrate successes, and keep Nigerian culinary traditions alive for the next generation.
+                        <br /><br />
+                        We believe that food is culture, and every meal is an opportunity to honor where we come from while embracing where we're going. That's the Zuri promise: authentic flavor, modern convenience, and a taste that feels like home.
+                    </Text>
+                </HStack>
             </Box>
 
             <Box className="py-[6rem] px-4 bg-[#FFFFFF]">
@@ -145,28 +139,7 @@ const About = () => {
                 </Box>
             </Box>
 
-            <Box className="py-10 px-4">
-                <VStack>
-                    <Text className="text-[36px] text-[#1A1A2E] font-bold text-center">
-                        The People Behind the Flavour
-                    </Text>
-                    <Text className="inter text-[20px] text-[#475467] text-center">
-                        A passionate team dedicated to bringing authentic Nigerian flavors to every kitchen.
-                    </Text>
-                </VStack>
-                <HStack justify={'center'} gap={8} py={10} flexDirection={{ base: 'column', lg: 'row' }}>
-                    {team.map((member, index) => (
-                        <Box className="bg-white p-4 rounded-[12px] w-full lg:w-[287.4px] h-auto lg:h-[250px] flex items-center justify-center" key={index}>
-                            <VStack gap={0}>
-                                <Image src={member.image} alt={member.name} className="w-[130px] h-[130px] rounded-full" />
-                                <Text className="uppercase urbanist text-[#101828] font-bold mt-4">{member.name}</Text>
-                                <Text className="uppercase urbanist text-[#CC0000]">{member.role}</Text>
-                            </VStack>
-                        </Box>
-                    ))}
-                </HStack>
-            </Box>
-
+            <Team />
         </div>
     )
 }

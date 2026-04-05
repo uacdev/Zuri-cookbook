@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import classNames from "classnames";
 import { LuBookmark, LuChevronRight, LuClock, LuUsers } from "react-icons/lu";
 import Pagination from "../components/ui/pagination";
-import { fetchRecipes, type Recipe } from '../service/recipeService'
+import { fetchRecipes, type Recipe } from '../service/contentService'
 import { IoIosFlash } from "react-icons/io";
 import { PiCookingPot } from "react-icons/pi";
 import { truncateWords } from "../service/utils";
