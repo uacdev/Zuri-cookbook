@@ -10,7 +10,7 @@ const Layout = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, [pathname]);
     return (
-        <Box>
+        <Box overflowX="hidden" w="100vw">
             <NavBar />
             <Outlet />
             <Footer />

@@ -29,6 +29,6 @@ export const Footer = () => {
                     </HStack>
                 </Box>
             </Flex>
-        </footer >
+        </footer>
     )
 }
