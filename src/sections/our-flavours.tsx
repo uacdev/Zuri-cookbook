@@ -9,8 +9,8 @@ export const OurFlavours = () => {
             <Text fontSize={{ base: '33px', lg: '55px' }} w={{ base: 'full', lg: '676px' }} textAlign={'center'} fontWeight={'black'} lineHeight={1.2} px={{ base: 2, lg: 0 }} className="anja">
                 Unmatched Flavours that Elevates Every Dish
             </Text>
-            <Text fontSize={{ base: '14px', lg: '18px' }} color={'#6B6B7A'} textAlign={'center'}>Each Zuri seasoning blend is perfected for a specific taste profile</Text>
-            <Box my={20}>
+            <Text fontSize={{ base: '14px', lg: '18px' }} color={'#6B6B7A'} textAlign={'center'} px={3}>Each Zuri seasoning blend is perfected for a specific taste profile</Text>
+            <Box my={{ base: 10, lg: 20 }}>
                 <ZuriStack />
             </Box>
         </Flex>

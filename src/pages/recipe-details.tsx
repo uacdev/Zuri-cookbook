@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Box, Button, Center, Flex, Heading, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
-import { FaStar } from "react-icons/fa";
 import { IoIosFlash } from "react-icons/io";
 import { LuClock, LuPrinter, LuUsers } from "react-icons/lu";
 import { Link, useParams } from "react-router";
@@ -93,8 +92,8 @@ export default function RecipeDetails() {
                             <IoIosFlash color="#F09737" />
                             <Text fontSize={"14px"}>{recipe.difficulty}</Text>
                         </HStack>
-                        <FaStar color="#FDC700" />
-                        <Text fontSize={"14px"}>4.8 (280 reviews)</Text>
+                        {/* <FaStar color="#FDC700" />
+                        <Text fontSize={"14px"}>4.8 (280 reviews)</Text> */}
                     </Flex>
                     <ShareButton recipeName={recipe.title} />
                 </Box>

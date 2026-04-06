@@ -1,5 +1,6 @@
+import { useNavigate } from 'react-router'
 import { motion } from 'motion/react'
-import { Flex, Image } from "@chakra-ui/react"
+import { Flex, Image, useBreakpointValue } from "@chakra-ui/react"
 import { FaArrowRight } from 'react-icons/fa'
 
 interface Flavour {
@@ -9,7 +10,6 @@ interface Flavour {
     bgText: string
     color: string
 }
-
 
 export const Flavours: Flavour[] = [
     {
@@ -45,16 +45,21 @@ export const Flavours: Flavour[] = [
 const tilts = [1.5, -2, 2.5, -1]
 
 export const ZuriStack = () => {
+    const navigate = useNavigate();
+    const isMobile = useBreakpointValue({ base: true, lg: false })
+    const containerWidth = isMobile ? "95%" : "1130px"
+    const containerHeight = isMobile ? `${Flavours.length * 100}vh` : `${Flavours.length * 70}vh`
+
     return (
-        <div style={{ height: `${Flavours.length * 70}vh`, width: '1130px', position: "relative" }}>
+        <div style={{ height: containerHeight, width: containerWidth, position: "relative", margin: "0 auto" }}>
             {Flavours.map((spice, index) => (
                 <motion.div
                     key={spice.title}
                     style={{
                         position: "sticky",
-                        top: "150px",
+                        top: isMobile ? "100px" : "150px",
                         zIndex: index + 1,
-                        height: "630px",
+                        height: isMobile ? "auto" : "630px",
                         width: "100%",
                         maxWidth: "1120px",
                         margin: "0 auto",
@@ -63,9 +68,10 @@ export const ZuriStack = () => {
                         rotate: tilts[index],
                         overflow: "hidden",
                         display: "flex",
-                        alignItems: 'end',
-                        padding: "80px",
-                        gap: "32px",
+                        alignItems: isMobile ? 'center' : 'end',
+                        padding: isMobile ? "40px 20px" : "80px",
+                        gap: isMobile ? "20px" : "32px",
+                        flexDirection: isMobile ? 'column' : 'row'
                     }}
                     initial={{ y: "40vh" }}
                     whileInView={{ y: 0 }}
@@ -78,21 +84,36 @@ export const ZuriStack = () => {
                 >
 
                     {/* background text */}
+                    <Image
+                        src={spice.bgText}
+                        flexShrink={0}
+                        scale={isMobile ? 1.2 : 1.6}
+                        className={isMobile ? 'absolute top-0 left-0 w-full opacity-20' : 'absolute top-10'}
+                    />
 
-                    <Image src={spice.bgText} flexShrink={0} scale={1.6} className='absolute top-10' />
-
-                    <Flex className='z-10 justify-end items-end flex-1 text-white'>
+                    <Flex
+                        className='z-10 text-white'
+                        direction={isMobile ? 'column-reverse' : 'row'}
+                        alignItems={isMobile ? 'center' : 'end'}
+                        justifyContent={isMobile ? 'center' : 'end'}
+                        flex={1}
+                        w="full"
+                        textAlign={isMobile ? 'center' : 'left'}
+                    >
                         <div>
-                            <h2 style={{ fontSize: "64px", fontWeight: 800, margin: "0 0 " }} className='anja'>{spice.title}</h2>
-                            <p style={{ fontSize: "18px", color: '#F2EDE8', lineHeight: '28px', maxWidth: "457px" }}>{spice.subtext}</p>
-                            <button className='h-[44px] mt-[20px] px-[20px] py-[8px] rounded-[100px] border border-[rgba(255,255,255,0.4)] bg-white text-[#5D3002] font-bold flex items-center gap-2'>
-                                See Recipes
+                            <h2 style={{ fontSize: isMobile ? "40px" : "64px", fontWeight: 800, margin: "0 0 " }} className='anja'>{spice.title}</h2>
+                            <p style={{ fontSize: isMobile ? "16px" : "18px", color: '#F2EDE8', lineHeight: isMobile ? '24px' : '28px', maxWidth: isMobile ? "100%" : "457px" }}>{spice.subtext}</p>
+                            <button className={`h-[44px] mt-[20px] px-[20px] py-[8px] rounded-[100px] border border-[rgba(255,255,255,0.4)] bg-white text-[#5D3002] font-bold flex items-center gap-2 ${isMobile ? 'mx-auto' : ''}`}
+                                onClick={() => navigate(`/recipes?seasoning=${encodeURIComponent(spice.title)}`)}
+                            >
+                                Explore Recipes
                                 <FaArrowRight />
                             </button>
                         </div>
+
                         <img
                             src={spice.seasoningImage}
-                            className="w-[385px] h-full lg:h-[390px] object-contain flex-shrink-0 ml-auto"
+                            className="flex-shrink-0 w-[235.94px] lg:w-[385px] h-[241.52px] lg:h-[390px] object-contain mb-[20px] lg:mb-0 ml-0 lg:ml-auto"
                         />
                     </Flex>
                 </motion.div>

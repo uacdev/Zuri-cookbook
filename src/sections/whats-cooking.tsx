@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router"
 import { Box, Button, Center, Flex, HStack, IconButton, Image, Text } from "@chakra-ui/react"
 import { LuClock, LuUsers } from "react-icons/lu"
 import { SimpleSlider } from "./slider"
@@ -5,6 +6,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { useRef } from "react"
 
 export const WhatsCooking = () => {
+    const navigate = useNavigate();
+
     const scrollRef = useRef<HTMLDivElement>(null)
 
     const scroll = (direction: 'left' | 'right') => {
@@ -16,6 +19,7 @@ export const WhatsCooking = () => {
             })
         }
     }
+
     return (
         <Box mt={{ base: '20rem', lg: '0' }}>
             <Flex w={'full'} direction={"column"} pt={10} mt={20} alignItems={"center"}>
@@ -94,6 +98,7 @@ export const WhatsCooking = () => {
                                 fontWeight={"bold"}
                                 bg={"white"}
                                 mt={'10px'}
+                                onClick={() => navigate('/recipes')}
                             >
                                 Explore Recipes
                             </Button>

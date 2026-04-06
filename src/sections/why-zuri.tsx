@@ -1,10 +1,10 @@
 import { Box, Center, Flex, Image, Text } from "@chakra-ui/react"
 import friedRecipeImg from '../assets/fried-rice-img.png'
-import starIcon from '../assets/star-icon.svg'
+import starIcon from '../assets/icons/star-icon.svg'
 
 export const WhyZuri = () => {
     return (
-        <Flex direction={'column'} py={20} alignItems={'center'} bg={'#F2EDE8'} mt={{ base: '22rem', lg: 0 }}>
+        <Flex direction={'column'} py={20} alignItems={'center'} bg={'#F2EDE8'} mt={{ base: '5rem', lg: 0 }}>
             <Text fontSize={{ base: '32px', lg: '55px' }} mb={11} textAlign={'center'} fontWeight={'black'} className="anja">Why Cook With Zuri?</Text>
             <Flex gap={4.5} flexDirection={{ base: 'column', lg: 'row' }}>
                 <Box

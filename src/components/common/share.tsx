@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 import { useLocation } from "react-router";
-import { Button, HoverCard, HStack, Portal } from "@chakra-ui/react";
+import { Button, Popover, HStack, Portal } from "@chakra-ui/react";
 import { LuShare2 } from "react-icons/lu";
 import { BsInstagram, BsWhatsapp } from "react-icons/bs";
 import { FaLink, FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaTelegramPlane } from "react-icons/fa";
+import { PopoverRoot, PopoverTrigger, PopoverContent } from "../ui/popover";
 
 export const ShareButton = ({ recipeName }: { recipeName?: string }) => {
     const location = useLocation();
@@ -30,16 +31,16 @@ export const ShareButton = ({ recipeName }: { recipeName?: string }) => {
     const shareMessage = `Check out this recipe for ${recipeName} I found on Zuri Cookbook! ${sharedUrl}`
 
     return (
-        <HoverCard.Root positioning={{ placement: 'bottom-end' }}>
-            <HoverCard.Trigger asChild>
+        <PopoverRoot positioning={{ placement: 'bottom-end' }}>
+            <PopoverTrigger asChild>
                 <Button className="bg-transparent border border-[#FFFFFF80] rounded-[12px] font-medium text-white no-print w-[97px] mt-5">
                     <LuShare2 />
                     Share
                 </Button>
-            </HoverCard.Trigger>
+            </PopoverTrigger>
             <Portal>
-                <HoverCard.Positioner>
-                    <HoverCard.Content
+                <Popover.Positioner>
+                    <PopoverContent
                         w='auto'
                         boxShadow="sm"
                         p={1} bg='white'
@@ -120,9 +121,9 @@ export const ShareButton = ({ recipeName }: { recipeName?: string }) => {
                                 </a>
                             </Button>
                         </HStack>
-                    </HoverCard.Content>
-                </HoverCard.Positioner>
+                    </PopoverContent>
+                </Popover.Positioner>
             </Portal>
-        </HoverCard.Root>
+        </PopoverRoot>
     )
 }

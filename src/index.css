@@ -40,7 +40,7 @@ body {
 	background-color: #faf6f1;
 	color: #1a1a2e;
 	font-family: "DM Sans", sans-serif;
-	overflow-x: hidden;
+	overflow-x: hidden !important;
 }
 
 .nav-link.active {
