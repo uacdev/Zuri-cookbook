@@ -87,8 +87,10 @@ export const ZuriStack = () => {
                     <Image
                         src={spice.bgText}
                         flexShrink={0}
-                        scale={isMobile ? 1.2 : 1.6}
-                        className={isMobile ? 'absolute top-0 left-0 w-full opacity-20' : 'absolute top-10'}
+                        scale={isMobile ? 1.2 : 0.9}
+                        insetInline={0}
+                        overflow='hidden'
+                        className={isMobile ? 'absolute top-0 left-0 w-full opacity-20' : 'absolute w-[100%] top-[-10px]'}
                     />
 
                     <Flex

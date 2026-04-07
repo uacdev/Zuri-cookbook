@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router"
 import { NavBar } from "../components/common/nav-bar";
-import { Box } from "@chakra-ui/react";
 import { Footer } from "../components/common/footer";
 
 const Layout = () => {
@@ -11,13 +10,11 @@ const Layout = () => {
     }, [pathname]);
 
     return (
-        <div>
+        <>
             <NavBar />
-            <Box overflowX="hidden" w="100vw">
-                <Outlet />
-            </Box>
+            <Outlet />
             <Footer />
-        </div>
+        </>
     )
 }
 
