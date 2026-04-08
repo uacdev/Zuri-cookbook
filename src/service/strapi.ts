@@ -2,6 +2,11 @@ const STRAPI_URL = import.meta.env.VITE_STRAPI_URL?.replace('/.strapiapp.com', '
 const STRAPI_TOKEN = import.meta.env.VITE_STRAPI_API_TOKEN || '';
 
 export const fetchStrapi = async (path: string, options?: RequestInit) => {
+    if (!STRAPI_URL) {
+        console.error("FATAL ERROR: VITE_STRAPI_URL is missing. Please set it in your production environment variables (Vercel/Netlify)!");
+        return { data: null, meta: {}, error: { status: 500, message: "Missing Strapi URL configuration" } };
+    }
+
     try {
         const url = `${STRAPI_URL}${path}`;
         const response = await fetch(url, {
