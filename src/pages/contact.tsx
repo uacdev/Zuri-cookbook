@@ -218,6 +218,7 @@ const Contact = () => {
                                 fontWeight="600"
                                 _hover={{ bg: '#CC0000' }}
                                 disabled={!agreed || loading}
+                                loading={loading}
                                 loadingText='Submitting...'
                             >
                                 Send message
