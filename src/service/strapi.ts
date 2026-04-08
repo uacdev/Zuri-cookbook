@@ -1,4 +1,4 @@
-const STRAPI_URL = import.meta.env.VITE_STRAPI_URL?.replace('/.strapiapp.com', '') || '';
+const STRAPI_URL = import.meta.env.VITE_STRAPI_URL || '';
 const STRAPI_TOKEN = import.meta.env.VITE_STRAPI_API_TOKEN || '';
 
 export const fetchStrapi = async (path: string, options?: RequestInit) => {
