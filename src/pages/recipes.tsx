@@ -41,11 +41,17 @@ export default function Recipes() {
 
     useEffect(() => {
         setLoading(true)
-        fetchRecipes(currentPage, pageSize, activeCategory, debouncedSearch, selectedSeasoning || undefined).then(data => {
-            setRecipes(data.recipes)
-            setTotalCount(data.total)
-            setLoading(false)
-        })
+        fetchRecipes(currentPage, pageSize, activeCategory, debouncedSearch, selectedSeasoning || undefined)
+            .then(data => {
+                setRecipes(data.recipes)
+                setTotalCount(data.total)
+            })
+            .catch(error => {
+                console.error("Failed to fetch recipes:", error);
+            })
+            .finally(() => {
+                setLoading(false)
+            })
     }, [currentPage, activeCategory, debouncedSearch, selectedSeasoning])
 
     const handleCategoryChange = (category: string) => {

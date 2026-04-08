@@ -1,137 +1,120 @@
-import { contentfulClient } from './contentful'
+import { fetchStrapi, getStrapiMedia, extractData } from './strapi';
 
 export interface Ingredient {
-    name: string
-    quantity: string
-    unit: string
+    name: string;
+    quantity: string;
+    unit: string;
 }
 
 export interface InstructionStep {
-    step: number
-    title: string
-    content: string
+    step: number;
+    title: string;
+    content: string;
 }
 
 export interface Recipe {
-    id: string
-    title: string
-    slug: string
-    description: string
-    imageUrl: string
-    category: string
-    prepTime: number
-    cookTime: number
-    servings: number
-    ingredients: Ingredient[]
-    instructions: InstructionStep[]
-    difficulty: string
-    seasoning: string
-    tags: string[]
-}
-
-export interface ManagementTeamMember {
-    id: string
-    fullName: string
-    role: string
-    image: string
-    bio: string
+    id: string;
+    title: string;
+    slug: string;
+    description: string;
+    imageUrl: string;
+    category: string;
+    prepTime: number;
+    servings: number;
+    ingredients: Ingredient[];
+    instructions: InstructionStep[];
+    difficulty: string;
+    seasoning: string;
+    tags: string[];
 }
 
 export interface RecipesResponse {
-    recipes: Recipe[]
-    total: number
+    recipes: Recipe[];
+    total: number;
 }
 
-export const fetchRecipes = async (page: number = 1, limit: number = 10, category?: string, search?: string, seasoning?: string): Promise<RecipesResponse> => {
-    const query: any = {
-        content_type: 'recipe',
-        order: ['-sys.createdAt'],
-        limit,
-        skip: (page - 1) * limit,
+const mapRecipeData = (item: any): Recipe => {
+    const data = extractData(item);
+
+    const title = data.title || '';
+    const slug = data.slug || '';
+    const description = data.description || '';
+    const category = data.category || '';
+    const prepTime = data.prepTimeMins || 0;
+    const servings = data.servings || 0;
+    const seasoning = data.seasoning || '';
+    const difficulty = data.difficulty || '';
+    const instructions = data.instructions || [];
+    const ingredients = data.ingredients || [];
+    const tagsRaw = data.tags || [];
+
+    let tags: string[] = [];
+    if (Array.isArray(tagsRaw)) {
+        tags = tagsRaw;
+    } else if (typeof tagsRaw === 'string') {
+        tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
     }
 
-    if (category && category !== 'All Recipes') {
-        query['fields.category[match]'] = category
-    }
-
-    if (seasoning) {
-        query['fields.seasoning[match]'] = seasoning
-    }
-
-    if (search) {
-        query.query = search
-    }
-
-    const entries = await contentfulClient.getEntries(query)
-
-    const recipes = entries.items.map((item: any) => ({
-        id: item.sys.id,
-        title: item.fields.title ?? '',
-        slug: item.fields.slug ?? '',
-        description: item.fields.description ?? '',
-        imageUrl: item.fields.image?.fields?.file?.url
-            ? `https:${item.fields.image.fields.file.url}`
-            : '',
-        category: item.fields.category ?? '',
-        prepTime: item.fields.prepTime ?? 0,
-        cookTime: item.fields.cookTime ?? 0,
-        servings: item.fields.servings ?? 0,
-        ingredients: item.fields.ingredients ?? [],
-        instructions: item.fields.instructions ?? [],
-        seasoning: item.fields.seasoning ?? '',
-        difficulty: item.fields.difficulty ?? '',
-        tags: item.fields.tags ?? [],
-    }))
+    const imageObj = extractData(data.image);
+    const imageUrl = getStrapiMedia(imageObj?.url || imageObj?.formats?.large?.url || imageObj?.formats?.medium?.url || null);
 
     return {
-        recipes,
-        total: entries.total,
+        id: item.documentId || item.id?.toString() || '',
+        title,
+        slug,
+        description,
+        imageUrl,
+        category,
+        prepTime,
+        servings,
+        ingredients,
+        instructions,
+        seasoning,
+        difficulty,
+        tags,
+    };
+};
+
+export const fetchRecipes = async (page: number = 1, limit: number = 10, category?: string, search?: string, seasoning?: string): Promise<RecipesResponse> => {
+    const params = new URLSearchParams();
+
+    params.append('pagination[page]', page.toString());
+    params.append('pagination[pageSize]', limit.toString());
+    params.append('populate', '*');
+    params.append('sort[0]', 'createdAt:desc');
+
+    if (category && category !== 'All Recipes') {
+        params.append('filters[category][$eqi]', category);
     }
+    if (seasoning) {
+        params.append('filters[seasoning][$eqi]', seasoning);
+    }
+    if (search) {
+        params.append('filters[title][$containsi]', search);
+    }
+
+    const response = await fetchStrapi(`/api/recipes?${params.toString()}`);
+    const recipes = (response.data || []).map(mapRecipeData);
+    const total = response.meta?.pagination?.total || 0;
+
+    return { recipes, total };
 }
 
 export const fetchRecipeBySlug = async (slug: string): Promise<Recipe | null> => {
-    const entries = await contentfulClient.getEntries({
-        content_type: 'recipe',
-        'fields.slug': slug,
-        limit: 1,
-    })
+    const params = new URLSearchParams();
+    params.append('filters[slug][$eq]', slug);
+    params.append('populate', '*');
 
-    if (!entries.items.length) return null
-    const item: any = entries.items[0]
+    const response = await fetchStrapi(`/api/recipes?${params.toString()}`);
+    const data = response.data || [];
+    if (data.length === 0) return null;
 
-    return {
-        id: item.sys.id,
-        title: item.fields.title ?? '',
-        slug: item.fields.slug ?? '',
-        description: item.fields.description ?? '',
-        imageUrl: item.fields.image?.fields?.file?.url
-            ? `https:${item.fields.image.fields.file.url}`
-            : '',
-        category: item.fields.category ?? '',
-        prepTime: item.fields.prepTime ?? 0,
-        cookTime: item.fields.cookTime ?? 0,
-        servings: item.fields.servings ?? 0,
-        ingredients: item.fields.ingredients ?? [],
-        instructions: item.fields.instructions ?? [],
-        seasoning: item.fields.seasoning ?? '',
-        difficulty: item.fields.difficulty ?? '',
-        tags: item.fields.tags ?? [],
-    }
+    return mapRecipeData(data[0]);
 }
 
-export const fetchManagementTeam = async (): Promise<ManagementTeamMember[]> => {
-    const entries = await contentfulClient.getEntries({
-        content_type: 'managementTeam',
-        order: ['sys.createdAt'],
-    })
-
-    return entries.items.map((item: any) => ({
-        id: item.sys.id,
-        fullName: item.fields.fullName ?? '',
-        role: item.fields.role ?? '',
-        image: item.fields.image?.fields?.file?.url
-            ? `https:${item.fields.image.fields.file.url}`
-            : '',
-        bio: item.fields.bio ?? '',
-    }))
+export const submitContactForm = async (data: any) => {
+    return await fetchStrapi('/api/contact-submissions', {
+        method: 'POST',
+        body: JSON.stringify({ data })
+    });
 }
