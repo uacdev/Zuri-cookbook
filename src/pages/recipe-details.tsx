@@ -20,6 +20,9 @@ export default function RecipeDetails() {
         if (!id) return
         fetchRecipeBySlug(id).then(data => {
             setRecipe(data)
+        }).catch(error => {
+            console.error("Failed to fetch recipe:", error);
+        }).finally(() => {
             setLoading(false)
         })
     }, [id])
@@ -90,7 +93,7 @@ export default function RecipeDetails() {
                         <Text fontSize={"14px"}>{recipe.servings} servings</Text>
                         <HStack gap={1}>
                             <IoIosFlash color="#F09737" />
-                            <Text fontSize={"14px"}>{recipe.difficulty}</Text>
+                            <Text className="capitalize text-[14px]">{recipe.difficulty}</Text>
                         </HStack>
                         {/* <FaStar color="#FDC700" />
                         <Text fontSize={"14px"}>4.8 (280 reviews)</Text> */}
