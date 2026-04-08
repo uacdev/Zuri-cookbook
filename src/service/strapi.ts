@@ -12,7 +12,7 @@ export const fetchStrapi = async (path: string, options?: RequestInit) => {
                 ...options?.headers,
             },
         });
-        
+
         if (!response.ok) {
             console.error(`Strapi fetch failed: ${response.status} ${response.statusText}`);
             try {
@@ -22,7 +22,7 @@ export const fetchStrapi = async (path: string, options?: RequestInit) => {
                 return { data: null, meta: {}, error: { status: response.status, message: response.statusText } };
             }
         }
-        
+
         return await response.json();
     } catch (error) {
         console.error('Strapi network error:', error);
