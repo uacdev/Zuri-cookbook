@@ -3,10 +3,10 @@ import { Box, Image, Stack, Text, VStack, HStack, Input, Textarea, Button, Flex 
 import { Toaster, toaster } from "../components/ui/toaster"
 import { Checkbox } from "../components/ui/checkbox"
 import { submitContactForm } from "../service/contentService"
-import { Link } from "react-router"
 import contactImg from "../assets/contact.png"
 import mail from "../assets/icons/email.png"
 import location from "../assets/icons/location.png"
+import phoneIcon from "../assets/icons/phone.png"
 
 
 const Contact = () => {
@@ -23,7 +23,7 @@ const Contact = () => {
         e.preventDefault();
         if (!firstName || !lastName || !email || !message || !agreed) {
             toaster.create({
-                title: `Please fill all required fields and agree to the privacy policy.`,
+                title: `Please fill all required fields.`,
                 type: "warning",
             })
             return;
@@ -85,7 +85,7 @@ const Contact = () => {
             description: "Km 16, Ikorodu Road, Ojota, P.O. Box 177, Lagos"
         },
         {
-            icon: phone,
+            icon: phoneIcon,
             title: "Phone",
             description: "+234 803 123 0015"
         }
@@ -139,7 +139,7 @@ const Contact = () => {
                                 <Text className="urbanist text-[#344054] text-sm font-medium mb-1.5">Email</Text>
                                 <Input
                                     type="email"
-                                    placeholder="you@company.com"
+                                    placeholder="you@email.com"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
                                     className="urbanist"
@@ -204,7 +204,7 @@ const Contact = () => {
                                     onCheckedChange={() => setAgreed(!agreed)}
                                 />
                                 <Text className="urbanist text-[#475467] text-base">
-                                    You agree to our friendly <Link to="/privacy" className="underline">privacy policy</Link>.
+                                    I hereby consent to the processing of my personal data in compliance with the Nigeria Data Protection Act, 2023, and declare my agreement with UAC Foods Limited's Data Privacy and Protection Policy.
                                 </Text>
                             </HStack>
 

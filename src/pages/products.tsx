@@ -8,16 +8,16 @@ import { BgIllustration } from "../components/common/bg-illustration";
 export default function Products() {
     return (
         <>
-            <Box className="relative h-screen lg:h-[400px] flex items-center justify-center bg-[#1A1A2E] px-[16px] lg:px-[68px] py-[2apx] lg:py-[45px]">
+            <Box className="relative h-screen lg:h-[400px] flex items-center justify-center px-[16px] lg:px-[68px] py-[2apx] lg:py-[45px]">
                 <BgIllustration className="absolute w-full h-full lg:h-[400px]" />
-                <VStack p={{ base: 4, lg: 0 }} gap={0} textAlign={'center'} zIndex={2}>
-                    <Text className='urbanist text-[#FAF6F1] text-center uppercase text-[18px] font-bold tracking-wide'>
+                <VStack p={{ base: 4, lg: 0 }} gap={0} textAlign={'center'} zIndex={2} color='#1A1A2E'>
+                    <Text className='urbanist text-center uppercase text-[18px] font-bold tracking-wide'>
                         Our Products
                     </Text>
-                    <Text className='anja text-[#FAF6F1] text-[70px]'>
+                    <Text className='anja text-[70px]'>
                         Four Flavours, Infinite Recipes
                     </Text>
-                    <Text className='urbanist text-sm text-[#FAF6F1]'>
+                    <Text className='urbanist text-sm font-semibold'>
                         Each Zuri seasoning is crafted to bring out the best in your cooking.
                     </Text>
                 </VStack>

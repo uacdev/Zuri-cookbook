@@ -1,12 +1,13 @@
 import { Box } from "@chakra-ui/react"
 import type { BoxProps } from "@chakra-ui/react"
+import bgPatterns from '../../assets/bg-patterns.png'
 
 interface BgIllustrationProps extends BoxProps {
     illustration?: string
 }
 
 export const BgIllustration = ({
-    illustration = "/assets/seasoning-imgs/seasoning-bg-illustration.png",
+    illustration = bgPatterns,
     ...props
 }: BgIllustrationProps) => {
     return (

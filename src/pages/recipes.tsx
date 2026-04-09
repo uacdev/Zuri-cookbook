@@ -9,11 +9,11 @@ import { fetchRecipes, type Recipe } from '../service/contentService'
 import { IoIosFlash } from "react-icons/io";
 import { PiCookingPot } from "react-icons/pi";
 import { truncateWords } from "../service/utils";
-import seasoningImages from '../assets/seasoning-images.png'
+import seasoningImages from '../assets/seasoning-images.png';
 import { Loading } from "../components/common/loading";
 import { SimpleSlider } from "../sections/slider";
 import { Flavours } from "../sections/stack";
-import zuriMascot from '../assets/zuri-mascot.png'
+import zuriMascot from '../assets/zuri-mascot.png';
 import { BgIllustration } from "../components/common/bg-illustration";
 
 export default function Recipes() {
@@ -82,21 +82,25 @@ export default function Recipes() {
                         </HStack>
                     </Box>
                 ) : (
-                    <Box className="h-screen lg:h-[500px] flex items-center justify-center bg-[#1A1A2E] px-[16px] lg:px-[68px] py-[2apx] lg:py-[45px]">
-                        <BgIllustration className="absolute w-full h-full lg:h-[500px]" />
-                        <VStack p={{ base: 4, lg: 0 }} gap={0} className="relative">
-                            <HStack flexDirection={{ base: 'column', lg: 'row' }} className="lg:mt-[-6rem]">
-                                <Text fontSize={{ base: '60px', lg: '85px' }} className='anja text-[#FAF6F1] text-center'>Make Every</Text>
-                                <Image w={{ base: '220px', lg: '292.21px' }} src={seasoningImages} alt="seasoning-images" />
-                                <Text className='anja text-[#FAF6F1]' fontSize={{ base: '60px', lg: '85px' }}>Dish</Text>
-                            </HStack>
-                            <Text fontSize={{ base: '60px', lg: '145px' }} className='smooch-regular text-[#F2EDE8] absolute bottom-[-3rem] lg:top-[-80%]'>Delightful</Text>
-                        </VStack>
-                    </Box>
+                    <>
+                        <Box className="h-screen lg:h-[500px] flex items-center justify-center px-[16px] lg:px-[68px] py-[2apx] lg:py-[45px]">
+                            <BgIllustration className="absolute w-full h-full lg:h-[500px]" />
+                            <VStack p={{ base: 4, lg: 0 }} gap={0} className="relative">
+                                <HStack flexDirection={{ base: 'column', lg: 'row' }} className="lg:mt-[-6rem]">
+                                    <Text fontSize={{ base: '60px', lg: '85px' }} className='anja text-[#1A1A2E] text-center'>Make Every</Text>
+                                    <Image w={{ base: '220px', lg: '292.21px' }} src={seasoningImages} alt="seasoning-images" />
+                                    <Text className='anja text-[#1A1A2E]' fontSize={{ base: '60px', lg: '85px' }}>Dish</Text>
+                                </HStack>
+                                <Text fontSize={{ base: '60px', lg: '145px' }} className='smooch-regular text-[#FF0101] absolute bottom-[-3rem] lg:top-[-80%]'>
+                                    Delightful
+                                </Text>
+                            </VStack>
+                        </Box>
+                        <Box className="absolute bottom-0 w-full">
+                            <SimpleSlider />
+                        </Box>
+                    </>
                 )}
-                <Box className="absolute bottom-0 w-full">
-                    <SimpleSlider />
-                </Box>
             </Box>
 
             <Flex justify='space-between' bg={'#FFFFFF'} px={{ base: 4, lg: '68px' }} py={'13px'} borderBottom={'1px solid #E0D8D0'} flexWrap={'wrap'}>
@@ -154,16 +158,19 @@ export default function Recipes() {
                     </VStack>
                 ) : (
                     recipes.map((recipe, index) => (
-                        <Box w={'389px'} rounded={'12px'} border={'1px solid #E0D8D0'} key={index}>
+                        <Box w={'389px'} rounded={'12px'} border={'1px solid #E0D8D0'} key={index} className="relative">
                             <Box p={3} roundedTop={'12px'} h={'192px'} bg={`url(${recipe.imageUrl})`} bgSize={'cover'} backgroundPosition={'center'} bgRepeat={'no-repeat'} >
                                 <HStack justify={'space-between'}>
                                     <Text bg={'#F2EDE8'} fontSize={'14px'} fontWeight={'medium'} w={'fit'} rounded={'full'} px={3} textTransform={'capitalize'}> {recipe.category}</Text>
                                     <Center bg={'#F2EDE8'} fontWeight={'medium'} w={'fit'} rounded={'full'} p={2}><LuBookmark size={16} /></Center>
                                 </HStack>
                             </Box>
-                            <Box bg={'white'} roundedBottom={'12px'} p={3} color={'#9090A0'}>
+                            <Box bg={'white'} roundedBottom={'12px'} p={5} color={'#9090A0'}>
                                 <Text fontSize={'18px'} mb={'12px'} color={'#1A1A2E'} fontWeight={'semibold'}> {recipe.title}</Text>
-                                <Text w={'347px'} fontSize={'14px'}>{truncateWords(recipe.description)}</Text>
+                                <Box className="h-auto lg:h-[45.5px]">
+                                    <Text w={'347px'} fontSize={'14px'}>{truncateWords(recipe.description)}</Text>
+                                </Box>
+
                                 <Box h={'1px'} my={3} w={'full'} bg={'#E0D8D0'} />
                                 <HStack justify={'space-between'}>
                                     <Flex justify={'center'} align={'center'}>
@@ -183,7 +190,7 @@ export default function Recipes() {
                         </Box>
                     ))
                 )}
-            </Grid>
+            </Grid >
 
             <Box>
                 <Pagination

@@ -147,7 +147,7 @@ interface RecipeProps {
 
 const Recipes: RecipeProps[] = [
     {
-        bgImage: "/assets/recipe-imgs/fried-rice-bg.png",
+        bgImage: "/assets/recipe-imgs/akara-bg.jpg",
         title: "Akara & Pap",
         category: "Breakfast",
         time: "30 mins",
@@ -161,11 +161,11 @@ const Recipes: RecipeProps[] = [
         category: "Soup",
         time: "30 mins",
         serving: "6 servings",
-        mealImage: "/assets/recipe-imgs/egusi-soup-img.png",
+        mealImage: "/assets/recipe-imgs/egusi-soup.png",
         id: "egusi-soup",
     },
     {
-        bgImage: "/assets/recipe-imgs/jollof-rice-bg.png",
+        bgImage: "/assets/recipe-imgs/jollof-rice-bg.jpg",
         title: "Jollof Rice",
         category: "Main Dish",
         time: "45 mins",
@@ -179,11 +179,11 @@ const Recipes: RecipeProps[] = [
         category: "Main Dish",
         time: "45 mins",
         serving: "6 servings",
-        mealImage: "/assets/recipe-imgs/fried-rice-img.png",
+        mealImage: "/assets/recipe-imgs/fried-rice.png",
         id: "fried-rice",
     },
     {
-        bgImage: "/assets/recipe-imgs/fried-rice-bg.png",
+        bgImage: "/assets/recipe-imgs/akara-bg.jpg",
         title: "Akara & Pap",
         category: "Breakfast",
         time: "30 mins",
@@ -192,7 +192,7 @@ const Recipes: RecipeProps[] = [
         id: "akara-and-pap",
     },
     {
-        bgImage: "/assets/recipe-imgs/jollof-rice-bg.png",
+        bgImage: "/assets/recipe-imgs/jollof-rice-bg.jpg",
         title: "Jollof Rice",
         category: "Main Dish",
         time: "45 mins",
