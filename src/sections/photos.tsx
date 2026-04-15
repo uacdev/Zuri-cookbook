@@ -1,14 +1,22 @@
 import { Box, Button, Flex, HStack, Icon, Image, Text } from "@chakra-ui/react"
 import { FaInstagram } from "react-icons/fa"
 import { LuArrowRight, LuAtSign } from "react-icons/lu"
+import gallery1 from "../assets/gallery/image-1.png"
+import gallery2 from "../assets/gallery/image-2.png"
+import gallery3 from "../assets/gallery/image-3.png"
+import gallery4 from "../assets/gallery/image-4.png"
+import gallery5 from "../assets/gallery/image-5.png"
+import gallery6 from "../assets/gallery/image-6.png"
 
 export const Photos = () => {
+    const Images = [gallery2, gallery3, gallery4, gallery5, gallery6];
+
     return (
         <Flex p={{ base: 4, lg: 16 }} bg={'#F2EDE8'} direction={'column'} pb={20} justify={'center'} alignItems={'center'}>
             <Flex
                 color={'white'}
                 position={'relative'}
-                bgImage={`url(/assets/gallery/image-1.png)`}
+                bgImage={`url(${gallery1})`}
                 overflow={'hidden'}
                 bgSize={'cover'}
                 backgroundPosition={'center'}
@@ -21,18 +29,18 @@ export const Photos = () => {
                 <Flex w={'full'} direction={'column'} zIndex={'modal'} alignItems={'center'} justifyContent={'center'}>
                     <Text fontSize={{ base: '30px', lg: '75px' }} className="anja-accent flex items-center gap-2">Tag <LuAtSign />Zuri_nigeria</Text>
                     <Text fontSize={{ base: '14px', lg: '18px' }} textAlign={'center'} px={{ base: 4, lg: 0 }}>Each Zuri seasoning blend is perfected for a specific taste profile</Text>
-                    <Button 
+                    <Button
                         asChild
-                        rounded={'full'} 
-                        mt={5} 
-                        fontWeight={'bold'} 
-                        py={3} 
-                        px={6} 
-                        color={'#5D3002'} 
+                        rounded={'full'}
+                        mt={5}
+                        fontWeight={'bold'}
+                        py={3}
+                        px={6}
+                        color={'#5D3002'}
                         bg={'white'}
                         _hover={{ opacity: 0.9, textDecoration: 'none' }}
                     >
-                        <a 
+                        <a
                             href="https://www.instagram.com/zuri_nigeria/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -55,11 +63,3 @@ export const Photos = () => {
         </Flex>
     )
 }
-
-const Images = [
-    '/assets/gallery/image-2.png',
-    '/assets/gallery/image-3.png',
-    '/assets/gallery/image-4.png',
-    '/assets/gallery/image-5.png',
-    '/assets/gallery/image-6.png',
-]

@@ -5,6 +5,7 @@ import { LuClock, LuPrinter, LuUsers } from "react-icons/lu";
 import { Link, useParams } from "react-router";
 import { fetchRecipeBySlug, type Recipe } from "../service/contentService";
 import { PiCookingPot } from "react-icons/pi";
+import { SlSocialYoutube } from "react-icons/sl";
 import { AppBreadcrumbs } from "../components/common/breadcrumbs";
 import { Loading } from "../components/common/loading";
 import z from "../assets/z-round.png"
@@ -98,7 +99,19 @@ export default function RecipeDetails() {
                         {/* <FaStar color="#FDC700" />
                         <Text fontSize={"14px"}>4.8 (280 reviews)</Text> */}
                     </Flex>
-                    <ShareButton recipeName={recipe.title} />
+
+                    <HStack>
+                        {recipe.videoUrl && (
+                            <Button
+                                onClick={() => window.open(recipe.videoUrl, '_blank')}
+                                className="bg-transparent border border-[#FFFFFF80] rounded-[12px] font-medium text-white no-print px-2 mt-5"
+                            >
+                                <SlSocialYoutube />
+                                Watch video
+                            </Button>
+                        )}
+                        <ShareButton recipeName={recipe.title} />
+                    </HStack>
                 </Box>
 
                 <Box

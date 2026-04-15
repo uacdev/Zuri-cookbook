@@ -2,6 +2,14 @@ import { useNavigate } from 'react-router'
 import { motion } from 'motion/react'
 import { Flex, Image, useBreakpointValue } from "@chakra-ui/react"
 import { FaArrowRight } from 'react-icons/fa'
+import chicken from '../assets/seasoning-imgs/zuri-chicken.png'
+import chickenBg from '../assets/seasoning-imgs/zuri-chicken-bg.png'
+import jollof from '../assets/seasoning-imgs/zuri-jollof.png'
+import jollofBg from '../assets/seasoning-imgs/zuri-jollof-bg.png'
+import beef from '../assets/seasoning-imgs/zuri-beef.png'
+import beefBg from '../assets/seasoning-imgs/zuri-beef-bg.png'
+import classic from '../assets/seasoning-imgs/zuri-classic.png'
+import classicBg from '../assets/seasoning-imgs/zuri-classic-bg.png'
 
 interface Flavour {
     title: string
@@ -15,29 +23,29 @@ export const Flavours: Flavour[] = [
     {
         title: 'Zuri Chicken',
         subtext: 'Chicken flavour is perfect for enhancing chicken-based dishes such as jollof rice, chicken stew, chicken pepper soup, and marinades. Adds depth and savoury richness to poultry meals.',
-        seasoningImage: '/assets/seasoning-imgs/zuri-chicken.png',
-        bgText: '/assets/seasoning-imgs/zuri-chicken-bg.png',
+        seasoningImage: chicken,
+        bgText: chickenBg,
         color: '#685400'
     },
     {
         title: 'Zuri Jollof',
         subtext: 'Jollof flavour is specially crafted to deliver the authentic Nigerian party jollof taste and aroma. Contains tomato powder, reducing the need for additional tomatoes while ensuring rich colour and flavour.',
-        seasoningImage: '/assets/seasoning-imgs/zuri-jollof.png',
-        bgText: '/assets/seasoning-imgs/zuri-jollof-bg.png',
+        seasoningImage: jollof,
+        bgText: jollofBg,
         color: '#490101'
     },
     {
         title: 'Zuri Beef',
         subtext: 'Beef flavour is designed to complement beef dishes, including soups and stews. Provides a full-bodied, savoury taste that enhances meat-based recipes.',
-        seasoningImage: '/assets/seasoning-imgs/zuri-beef.png',
-        bgText: '/assets/seasoning-imgs/zuri-beef-bg.png',
+        seasoningImage: beef,
+        bgText: beefBg,
         color: '#573000'
     },
     {
         title: 'Zuri Classic',
         subtext: 'Classic flavour is a versatile seasoning suitable for a wide variety of meals, including soups, stews, beans, porridge, fried rice, and pepper soup. Ideal for everyday cooking.',
-        seasoningImage: '/assets/seasoning-imgs/zuri-classic.png',
-        bgText: '/assets/seasoning-imgs/zuri-classic-bg.png',
+        seasoningImage: classic,
+        bgText: classicBg,
         color: '#053201'
     }
 ];

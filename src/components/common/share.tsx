@@ -33,7 +33,7 @@ export const ShareButton = ({ recipeName }: { recipeName?: string }) => {
     return (
         <PopoverRoot positioning={{ placement: 'bottom-end' }}>
             <PopoverTrigger asChild>
-                <Button className="bg-transparent border border-[#FFFFFF80] rounded-[12px] font-medium text-white no-print w-[97px] mt-5">
+                <Button className="bg-transparent border border-[#FFFFFF80] rounded-[12px] font-medium text-white no-print px-2 mt-5">
                     <LuShare2 />
                     Share
                 </Button>

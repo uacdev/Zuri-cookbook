@@ -26,6 +26,7 @@ export interface Recipe {
     difficulty: string;
     seasoning: string;
     tags: string[];
+    videoUrl?: string;
 }
 
 export interface RecipesResponse {
@@ -72,6 +73,7 @@ const mapRecipeData = (item: any): Recipe => {
         seasoning,
         difficulty,
         tags,
+        videoUrl: data.videoUrl || '',
     };
 };
 
