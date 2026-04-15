@@ -17,7 +17,6 @@ import friedImg from "../assets/recipe-imgs/fried-rice.png"
 
 export const WhatsCooking = () => {
     const navigate = useNavigate();
-
     const scrollRef = useRef<HTMLDivElement>(null)
     const searchRef = useRef<HTMLDivElement>(null)
     const [searchQuery, setSearchQuery] = useState('')
@@ -190,7 +189,6 @@ export const WhatsCooking = () => {
                         bgImage={`url(${recipe.bgImage})`}
                         bgRepeat={"no-repeat"}
                         bgSize={"cover"}
-
                     >
                         <Box
                             boxSize={"100%"}
@@ -231,7 +229,7 @@ export const WhatsCooking = () => {
                                 fontWeight={"bold"}
                                 bg={"white"}
                                 mt={'10px'}
-                                onClick={() => navigate('/recipes')}
+                                onClick={() => navigate(`/recipes?category=${recipe.category}`)}
                             >
                                 Explore Recipes
                             </Button>
@@ -262,7 +260,7 @@ export const WhatsCooking = () => {
                         <FaAngleRight />
                     </IconButton>
                 </HStack>
-            </Center >
+            </Center>
             <SimpleSlider />
         </Box >
     )

@@ -17,14 +17,22 @@ import zuriMascot from '../assets/zuri-mascot.png';
 import { BgIllustration } from "../components/common/bg-illustration";
 
 export default function Recipes() {
+    const [searchParams] = useSearchParams();
+    const categoryParam = searchParams.get('category');
+
     const [recipes, setRecipes] = useState<Recipe[]>([])
     const [loading, setLoading] = useState(true)
-    const [activeCategory, setActiveCategory] = useState('All Recipes')
+    const [activeCategory, setActiveCategory] = useState(categoryParam || 'All Recipes')
     const [currentPage, setCurrentPage] = useState(1)
     const [totalCount, setTotalCount] = useState(0)
     const [searchQuery, setSearchQuery] = useState('')
     const [debouncedSearch, setDebouncedSearch] = useState('')
-    const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        if (categoryParam) {
+            setActiveCategory(categoryParam);
+        }
+    }, [categoryParam]);
     const selectedSeasoning = searchParams.get('seasoning');
     const pageSize = 9;
 
