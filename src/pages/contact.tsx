@@ -94,7 +94,7 @@ const Contact = () => {
         <>
             <Toaster />
             <Box className="bg-[#FFFFFF] flex items-center justify-center py-12 px-4 gap-8" flexDirection={{ base: 'column', lg: 'row' }}>
-                <Stack>
+                <Stack pl={{ base: 0, lg: 10 }}>
                     <Text className="urbanist text-[#1A1A2E] text-[36px] font-bold">
                         Get in Touch
                     </Text>
@@ -226,7 +226,7 @@ const Contact = () => {
                         </VStack>
                     </form>
                 </Stack>
-                <Image src={contactImg} alt="contact image" />
+                <Image src={contactImg} alt="contact image" w={{ base: 'full', lg: '50%' }} />
             </Box>
 
             <Box className="py-8 lg:py-20 max-w-[1152px] mx-auto">
