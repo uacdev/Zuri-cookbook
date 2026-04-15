@@ -204,9 +204,9 @@ export default function RecipeDetails() {
                                 <Text color={'#6B6B7A'} fontSize={'sm'} mb={2}>
                                     {recipe.seasoning} Seasoning
                                 </Text>
-                                <Button bg={'#FF0101'} color={'white'} w={'full'} rounded={'12px'} fontSize={'14px'} fontWeight={'semibold'}>
+                                {/* <Button bg={'#FF0101'} color={'white'} w={'full'} rounded={'12px'} fontSize={'14px'} fontWeight={'semibold'}>
                                     Buy Now
-                                </Button>
+                                </Button> */}
                             </VStack>
                         </Box>
                     </Stack>

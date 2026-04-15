@@ -1,7 +1,7 @@
-import { Link } from "react-router";
+// import { Link } from "react-router";
 import { Box, HStack, Image, Stack, Text } from "@chakra-ui/react"
 import z from "../assets/z-square.png";
-import { FaAngleRight } from "react-icons/fa";
+// import { FaAngleRight } from "react-icons/fa";
 
 export const SeasoningUsed = ({ seasoning }: { seasoning: string }) => {
     return (
@@ -15,10 +15,10 @@ export const SeasoningUsed = ({ seasoning }: { seasoning: string }) => {
                     <Text className="text-[#6B6B7A] text-sm">
                         Perfectly balanced blend of herbs and spices designed for poultry and rice dishes.
                     </Text>
-                    <Link to='/recipes' className="no-print flex items-center gap-1 text-[#FF0101] font-medium text-sm mt-5">
+                    {/* <Link to='/recipes' className="no-print flex items-center gap-1 text-[#FF0101] font-medium text-sm mt-5">
                         Shop {seasoning}
                         <FaAngleRight />
-                    </Link>
+                    </Link> */}
                 </Stack>
             </HStack>
         </Box>
