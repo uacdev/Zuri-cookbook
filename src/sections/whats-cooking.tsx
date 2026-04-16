@@ -72,13 +72,13 @@ export const WhatsCooking = () => {
     return (
         <Box mt={{ base: '20rem', lg: '0' }}>
             <Flex w={'full'} direction={"column"} pt={10} mt={20} alignItems={"center"}>
-                <Text fontSize={{ base: '32px', lg: '55px' }} className='anja-accent'>
+                <Text fontSize={{ base: '32px', lg: '55px' }} className='anja-accent text-center'>
                     What Are You Cooking Today?
                 </Text>
                 <Text fontSize={"18px"} textAlign='center' color={"#6B6B7A"}>
                     Handpicked recipes for every occasion, every taste.
                 </Text>
-                <Box ref={searchRef} position="relative" w={{ base: 'full', lg: '450px' }}>
+                <Box ref={searchRef} position="relative" w={{ base: 'full', lg: '450px' }} px={4}>
                     <InputGroup
                         border={'1px solid #E0D8D0'}
                         rounded={'8px'}
@@ -91,7 +91,7 @@ export const WhatsCooking = () => {
                         <Input
                             border={'none'}
                             outline={'none'}
-                            placeholder='Search meal names, recipes, ingredients...'
+                            placeholder='Search meals, recipes, ingredients, etc'
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             onFocus={() => searchQuery.trim() && setShowDropdown(true)}

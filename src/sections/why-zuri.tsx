@@ -4,7 +4,7 @@ import starIcon from '../assets/icons/star-icon.svg'
 
 export const WhyZuri = () => {
     return (
-        <Flex direction={'column'} py={20} alignItems={'center'} bg={'#F2EDE8'} mt={{ base: '5rem', lg: '10rem' }}>
+        <Flex direction={'column'} py={20} alignItems={'center'} bg={'#F2EDE8'} mt={{ base: '8rem', lg: '15rem' }}>
             <Text fontSize={{ base: '32px', lg: '55px' }} mb={11} textAlign={'center'} fontWeight={'black'} className="anja">Why Cook With Zuri?</Text>
             <Flex gap={4.5} flexDirection={{ base: 'column', lg: 'row' }}>
                 <Box
@@ -26,7 +26,6 @@ export const WhyZuri = () => {
                     justifyContent={'center'}
                     rounded={'24px'}
                     p={8}
-                    // h={'436.97px'}
                     bg={'#FFFBFA'}
                     border={'2px solid #FAF6F1'}>
                     <Text fontSize={'24px'} fontWeight={'extrabold'}>The Secret Behind Every Great Nigerian Dish</Text>
