@@ -100,7 +100,7 @@ export default function Recipes() {
                                     <Text className='anja text-[#1A1A2E]' fontSize={{ base: '60px', lg: '85px' }}>Dish</Text>
                                 </HStack>
                                 <Text fontSize={{ base: '60px', lg: '145px' }} className='smooch-regular text-[#FF0101] absolute bottom-[-3rem] lg:top-[-80%]'>
-                                    Delightful
+                                    Flavourful
                                 </Text>
                             </VStack>
                         </Box>

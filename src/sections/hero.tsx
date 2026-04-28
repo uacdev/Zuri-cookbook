@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Image, Text } from '@chakra-ui/react'
+import { Box, Flex, HStack, Image, Text, VStack } from '@chakra-ui/react'
 import bgPatterns from '../assets/bg-patterns.png'
 import seasoningImages from '../assets/seasoning-images.png'
 import zuriMascot from '../assets/zuri-mascot.png'
@@ -9,14 +9,14 @@ export const Hero = () => {
         <Box h={'130vh'}>
             <Flex direction={'column'} pt={20} alignItems={'center'} bgImage={`url(${bgPatterns})`} h={'90vh'} bgRepeat={'no-repeat'} bgSize={'cover'}>
                 <Box p={{ base: 4, lg: 0 }} textAlign={'center'}>
-                    <Text fontSize={{ base: '60px', lg: '104.5px' }} className='anja'>Making Everyday</Text>
-                    <HStack mt={'-18px'} flexDirection={{ base: 'column', lg: 'row' }} gap={4}>
-                        <Text color={'#FF0101'} fontSize={{ base: '60px', lg: '110px' }} className='smooch-regular'>Cooking</Text>
-                        <HStack flexDirection={{ base: 'column', lg: 'row' }}>
+                    <VStack>
+                        <Text fontSize={{ base: '60px', lg: '104.5px' }} className='anja'>Let's Make</Text>
+                        <HStack mt={'-18px'} flexDirection={{ base: 'column', lg: 'row' }} gap={4}>
+                            <Text color={'#FF0101'} fontSize={{ base: '60px', lg: '110px' }} className='smooch-regular'>Cooking</Text>
                             <Image w={{ base: '220px', lg: '292.21px' }} src={seasoningImages} alt="seasoning-images" />
-                            <Text ml={8} className='anja' fontSize={{ base: '60px', lg: '104.5px' }}> Fun</Text>
                         </HStack>
-                    </HStack>
+                        <Text className='anja' fontSize={{ base: '60px', lg: '104.5px' }}> Fun With Zuri</Text>
+                    </VStack>
                 </Box>
                 <Flex justify={'center'} rounded={'30px'} px={{ base: '10px', lg: '95px' }} mt={{ base: '50px', lg: '152px' }} position={'relative'}>
                     <Box position="relative" w="full">

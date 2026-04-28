@@ -21,8 +21,8 @@ const About = () => {
         },
         {
             icon: star,
-            title: 'Flavour Innovation',
-            description: 'Continuously perfecting our recipes based on feedback from thousands of Nigerian home cooks.',
+            title: 'Creativity',
+            description: 'Transforms everyday cooking by elevating every dish with rich, perfectly balanced taste',
             bg: '#1A1A2E'
         },
     ];
@@ -57,10 +57,10 @@ const About = () => {
                 <Box className="w-full max-w-[1216px] mx-auto">
                     <Stack className="max-w-[768px] mx-auto">
                         <Text className="urbanist text-[#1A1A2E] text-[32px] font-bold text-center">
-                            Making authentic Nigerian cooking accessible to everyone, everywhere.
+                            Our Mission
                         </Text>
-                        <Text className="text-[#1A1A2E] text-[18px] text-center">
-                            Our mission is to preserve and celebrate West African culinary heritage while empowering home cooks with the tools they need to create extraordinary meals without extraordinary effort. We believe everyone deserves to experience the rich, bold flavors that define Nigerian cuisine.
+                        <Text className="text-[#1A1A2E] text-[18px] text-center font-medium">
+                            To empower individuals to turn everyday cooking into a delightful experience, strengthening bonds and inspiring creativity through flavourful and easy-to-use seasoning.
                         </Text>
                     </Stack>
                     <HStack mt={10} flexDirection={{ base: 'column', lg: 'row' }} gap={4}>
