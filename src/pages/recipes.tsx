@@ -34,7 +34,7 @@ export default function Recipes() {
         }
     }, [categoryParam]);
     const selectedSeasoning = searchParams.get('seasoning');
-    const pageSize = 9;
+    const pageSize = 12;
 
     const currentFlavour = Flavours.find(f => f.title === selectedSeasoning);
 
